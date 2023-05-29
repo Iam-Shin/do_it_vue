@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Vue Component Registration</title>
+  </head>
+  <body>
+    <div id="app">
+      <button>컴포넌트 등록</button>
+      <henry-global-component></henry-global-component>
+      <henry-local-component></henry-local-component>
+      <melon-local-component></melon-local-component>
+    </div>
+
+    <div id="app2">
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
+
+    <script>
+      var cmp = {
+        template: "<div>지역 컴포넌트 입니다!</div>"
+      };
+
+      var mcmp = {
+        template: "<div>멜론 지역 컴포넌트 입니다!</div>"
+      };
+
+      Vue.component('henry-global-component', {
+        template: "<div>전역 컴포넌트 이다. 반말해도 됨.</div>"
+      })
+
+      new Vue ({
+        el: '#app',
+        components: {
+          'henry-local-component': cmp,
+          'melon-local-component' : mcmp
+        }     
+      })
+
+      new Vue({
+        el: '#app2',
+        template: '<div>이건 app2 지역인데 </div>'
+      })
+    </script>
+  </body>
+</html>
